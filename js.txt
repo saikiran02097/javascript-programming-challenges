@@ -1,0 +1,173 @@
+function amountpaid()
+{
+    var n=document.getElementById("input").value;
+    var x=JSON.parse(n);
+    var sum=0;
+    for(i in x)
+    sum+=x[i];
+    document.getElementById("output").value=sum;
+}
+function power()
+{
+    var n=Number(document.getElementById("input").value);
+    if(n<=0)
+    {
+        alert("input should be greater than 0");
+        window.location.assign("power.html");
+    }
+        else
+    {
+        for(i=0;Math.pow(2,i)<=n;i++){
+            result=i;
+        }
+
+         document.getElementById("output").value=result;
+    }
+}
+function duplicate()
+{
+    var n=document.getElementById("input").value.split(" ").map(function(x){
+        return parseInt(x,10)});
+        var res=" ";
+        for(i=0;i<n.length-1;i++)
+        for(j=i+1;j<n.length;j++)
+        if(n[i]==n[j])
+        res+='"'+i+'"';
+    document.getElementById("output").value=res;
+}
+function fact()
+{
+    var n=document.getElementById("input").value;
+    if(n===null ||n===" ")
+    alert("number not entered");
+    if(n<0)
+    {
+        alert("input should be greater than 0");
+        window.location.assign("factorial.html");
+    }
+        else
+    {
+        var result=1; 
+        for(i=1;i<=n;i++)
+        {
+          result*=i;
+        }
+        document.getElementById("output").value=result;
+    }
+}
+function fizzbuzz()
+{
+    var n=document.getElementById("input").value;
+    if(n<0)
+    {
+        alert("input should be greater than 0");
+        window.location.assign("factorial.html");
+    }
+        else
+    {
+        var x="";
+        for(i=1;i<=n;i++)
+        if((i%3==0)&&(i%5==0))
+        x+="FizzBuzz,";
+        else if(i%3==0)
+             x+="Fizz,";
+             else if(i%5==0)
+                  x+="Buzz,";
+                  else
+                  x+=i+",";
+                  
+                  document.getElementById("output").innerHTML=x.substring(0,x.length-1);
+    }
+
+}
+function multi()
+{
+    var n=Number(document.getElementById("input").value);
+    var result=0;
+    if(n<=0)
+    {
+        alert("input should be greater than 0");
+        window.location.assign("multi.html");
+    }
+        else
+    {
+        for(i=1;i<n;i++)
+        if((i%3==0)||(i%5==0))
+        result+=i;
+
+         document.getElementById("output").value=result;
+    }
+}
+function palindrome()
+{
+    var n=document.getElementById("input").value.split(",");
+    if(n.length<0)
+    {
+        alert("enter atleast one string");
+        window.location.assign("palindrome.html");
+    }
+        else
+    {
+        var x="[";
+        for(i=0;i<n.length;i++)
+        {
+           //alert(n);
+            //var temp=n[i];
+            //temp.split(",").reverse().join("");
+            //alert(temp);
+            if(n[i]==n[i].split("").reverse().join(""))
+            x+='"'+n[i]+'",';
+        }
+        x=x.substring(0,x.length-1);  
+        x+="]";
+                  document.getElementById("output").innerHTML=x;//.substring(0,x.length-1);
+    }
+
+}
+function singlepalindrome()
+{
+    var n=document.getElementById("input").value;
+    if(n.length<0)
+    {
+        alert("enter atleast one string");
+        window.location.assign("palindrome.html");
+    }
+        else
+    {
+        var x="";
+        
+            if(n==n.split("").reverse().join(""))
+            x="True";
+            else
+            x="False";
+        
+                  document.getElementById("output").innerHTML=x;//.substring(0,x.length-1);
+    }
+
+}
+function sum()
+{
+    var n=Number(document.getElementById("input").value);
+    if(n<0)
+    {
+        alert("input should be greater than 0");
+        window.location.assign("factorial.html");
+       
+    }
+        else
+    {
+        
+         document.getElementById("output").value=n*(n+1)/2;
+    }
+}
+function sumpairs()
+{   var sum=Number(document.getElementById("sum").value);
+    var n=document.getElementById("input").value.split(",").map(function(x){
+        return parseInt(x,10)});
+        var res=" ";
+        for(i=0;i<n.length-1;i++)
+        for(j=i+1;j<n.length;j++)
+        if(n[i]+n[j]==sum)
+        res+='"'+n[i]+','+n[j]+'"';
+    document.getElementById("output").value=res;
+}
